@@ -57,9 +57,9 @@ export function Carousel() {
         </motion.div>
       </div>
 
-      <div className="flex gap-2 items-center justify-center cursor-pointer">
+      <div className="flex gap-2 items-center justify-center">
         {Array.from({ length: ITEMS.length }).map((_, i) => (
-          <span
+          <button
             onClick={() => setIndex(i)}
             key={`dot-${i}`}
             className={clsx(
