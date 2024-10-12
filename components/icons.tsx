@@ -194,9 +194,10 @@ export const ArrowRight: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path>
@@ -211,9 +212,10 @@ export const ArrowLeft: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
@@ -228,9 +230,10 @@ export const CaretLeft: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
@@ -245,9 +248,10 @@ export const PaperPlane: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M240,127.89a16,16,0,0,1-8.18,14L63.9,237.9A16.15,16.15,0,0,1,56,240a16,16,0,0,1-15-21.33l27-79.95A4,4,0,0,1,71.72,136H144a8,8,0,0,0,8-8.53,8.19,8.19,0,0,0-8.26-7.47h-72a4,4,0,0,1-3.79-2.72l-27-79.94A16,16,0,0,1,63.84,18.07l168,95.89A16,16,0,0,1,240,127.89Z"></path>
@@ -262,9 +266,10 @@ export const Microphone: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M80,128V64a48,48,0,0,1,96,0v64a48,48,0,0,1-96,0Zm128,0a8,8,0,0,0-16,0,64,64,0,0,1-128,0,8,8,0,0,0-16,0,80.11,80.11,0,0,0,72,79.6V240a8,8,0,0,0,16,0V207.6A80.11,80.11,0,0,0,208,128Z"></path>
@@ -279,9 +284,10 @@ export const DotsThreeHorizontal: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M156,128a28,28,0,1,1-28-28A28,28,0,0,1,156,128ZM48,100a28,28,0,1,0,28,28A28,28,0,0,0,48,100Zm160,0a28,28,0,1,0,28,28A28,28,0,0,0,208,100Z"></path>
@@ -296,9 +302,10 @@ export const DotOutline: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M156,128a28,28,0,1,1-28-28A28,28,0,0,1,156,128Z"></path>
@@ -313,9 +320,10 @@ export const NotePencil: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M229.66,58.34l-32-32a8,8,0,0,0-11.32,0l-96,96A8,8,0,0,0,88,128v32a8,8,0,0,0,8,8h32a8,8,0,0,0,5.66-2.34l96-96A8,8,0,0,0,229.66,58.34ZM124.69,152H104V131.31l64-64L188.69,88ZM200,76.69,179.31,56,192,43.31,212.69,64ZM224,128v80a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32h80a8,8,0,0,1,0,16H48V208H208V128a8,8,0,0,1,16,0Z"></path>
@@ -330,9 +338,10 @@ export const Copy: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
@@ -347,9 +356,10 @@ export const ShareNetwork: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M176,160a39.89,39.89,0,0,0-28.62,12.09l-46.1-29.63a39.8,39.8,0,0,0,0-28.92l46.1-29.63a40,40,0,1,0-8.66-13.45l-46.1,29.63a40,40,0,1,0,0,55.82l46.1,29.63A40,40,0,1,0,176,160Zm0-128a24,24,0,1,1-24,24A24,24,0,0,1,176,32ZM64,152a24,24,0,1,1,24-24A24,24,0,0,1,64,152Zm112,72a24,24,0,1,1,24-24A24,24,0,0,1,176,224Z"></path>
@@ -364,9 +374,10 @@ export const Repeat: React.FC<IconSvgProps> = ({
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
-    viewBox="0 0 256 256"
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M24,128A72.08,72.08,0,0,1,96,56H204.69L194.34,45.66a8,8,0,0,1,11.32-11.32l24,24a8,8,0,0,1,0,11.32l-24,24a8,8,0,0,1-11.32-11.32L204.69,72H96a56.06,56.06,0,0,0-56,56,8,8,0,0,1-16,0Zm200-8a8,8,0,0,0-8,8,56.06,56.06,0,0,1-56,56H51.31l10.35-10.34a8,8,0,0,0-11.32-11.32l-24,24a8,8,0,0,0,0,11.32l24,24a8,8,0,0,0,11.32-11.32L51.31,200H160a72.08,72.08,0,0,0,72-72A8,8,0,0,0,224,120Z"></path>
@@ -384,6 +395,7 @@ export const Divider: React.FC<IconSvgProps> = ({
     viewBox="0 0 256 256"
     width={size || width}
     height={size || height}
+    fill={props.fill || "currentColor"}
     {...props}
   >
     <path d="M136,24V232a8,8,0,0,1-16,0V24a8,8,0,0,1,16,0Z"></path>
