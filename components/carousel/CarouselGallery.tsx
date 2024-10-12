@@ -9,7 +9,7 @@ export function CarouselGallery() {
   const { index, items } = useContext(CarouselContext);
 
   return (
-    <div className="rounded-lg overflow-hidden w-[320px] h-[480px] md:w-[420px]">
+    <div className="rounded-lg overflow-hidden w-full h-[440px] md:w-[600px]">
       <motion.div
         className="flex w-full h-full"
         animate={{ x: `-${index * 100}%` }}

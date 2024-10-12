@@ -14,12 +14,17 @@ export function CarouselButtonControl() {
     <Card className="mt-4">
       <CardBody>
         <div className="flex gap-4 items-center justify-start">
-          <Button isIconOnly variant="light" onClick={handleDecrement}>
-            <ArrowLeft fill="#fff" />
+          <Button
+            isIconOnly
+            variant="light"
+            color="default"
+            onClick={handleDecrement}
+          >
+            <ArrowLeft />
           </Button>
-          <Divider fill="#fff" />
+          <Divider />
           <Button isIconOnly variant="light" onClick={handleIncrement}>
-            <ArrowRight fill="#fff" />
+            <ArrowRight />
           </Button>
         </div>
       </CardBody>

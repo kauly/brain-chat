@@ -22,4 +22,12 @@ export const CAROUSEL_ITEMS: CarouselItem[] = [
 export const siteConfig = {
   name: "Brain Chat",
   description: "The fastest way to get started with AI",
+  links: {
+    github: "https://github.com/kauly/brain-chat",
+  },
 };
+
+export enum ROUTES {
+  HOME = "/",
+  CHAT = "/chat",
+}
