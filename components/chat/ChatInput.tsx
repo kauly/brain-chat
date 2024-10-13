@@ -13,7 +13,6 @@ export function ChatInput() {
         variant="faded"
         size="lg"
         fullWidth
-        autoFocus
         endContent={
           <Button isIconOnly variant="light" size="sm">
             <PaperPlane />
