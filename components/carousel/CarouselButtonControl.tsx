@@ -17,13 +17,18 @@ export function CarouselButtonControl() {
           <Button
             isIconOnly
             variant="light"
-            color="default"
+            aria-label="Gallery Previous"
             onClick={handleDecrement}
           >
             <ArrowLeft />
           </Button>
           <Divider />
-          <Button isIconOnly variant="light" onClick={handleIncrement}>
+          <Button
+            isIconOnly
+            variant="light"
+            aria-label="Gallery Next"
+            onClick={handleIncrement}
+          >
             <ArrowRight />
           </Button>
         </div>
