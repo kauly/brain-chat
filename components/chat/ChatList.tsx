@@ -1,44 +1,24 @@
-import { CoreMessage } from "ai";
+"use client";
+
+import { useContext } from "react";
 
 import { AiMessage } from "./AiMessage";
 import { UserMessage } from "./UserMessage";
+import { ChatContext } from "./Chat";
 
-type ChatListProps = {
-  messages: CoreMessage[];
-};
+export function ChatList() {
+  const { messages } = useContext(ChatContext);
 
-export function ChatList({ messages = [] }: ChatListProps) {
   return (
     <div className="w-full h-full overflow-y-auto flex justify-center pb-2">
       <div className="max-h-full w-full overflow-y-auto scrollbar-hide scroll-smooth">
-        <AiMessage message={{ content: "ola", role: "assistant" }} />
-        <UserMessage
-          message={{ content: "ola asasssssss as as as a s", role: "user" }}
-        />
-        <AiMessage message={{ content: "ola", role: "assistant" }} />
-        <UserMessage
-          message={{ content: "ola asasssssss as as as a s", role: "user" }}
-        />
-        <AiMessage message={{ content: "ola", role: "assistant" }} />
-        <UserMessage
-          message={{ content: "ola asasssssss as as as a s", role: "user" }}
-        />
-        <AiMessage message={{ content: "ola", role: "assistant" }} />
-        <UserMessage
-          message={{ content: "ola asasssssss as as as a s", role: "user" }}
-        />
-        <AiMessage message={{ content: "ola", role: "assistant" }} />
-        <UserMessage
-          message={{ content: "ola asasssssss as as as a s", role: "user" }}
-        />
-        <AiMessage message={{ content: "ola", role: "assistant" }} />
-        <UserMessage
-          message={{ content: "ola asasssssss as as as a s", role: "user" }}
-        />
-        <AiMessage message={{ content: "ola", role: "assistant" }} />
-        <UserMessage
-          message={{ content: "ola asasssssss as as as a s", role: "user" }}
-        />
+        {messages.map((message) =>
+          message.role === "assistant" ? (
+            <AiMessage key={message.id} message={message} />
+          ) : (
+            <UserMessage key={message.id} message={message} />
+          )
+        )}
       </div>
     </div>
   );
