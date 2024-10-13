@@ -1,12 +1,12 @@
-import { CoreMessage } from "ai";
 import { Avatar } from "@nextui-org/avatar";
 import { Button } from "@nextui-org/button";
 import { Tooltip } from "@nextui-org/tooltip";
+import { ChatMessage } from "@langchain/core/messages";
 
 import { Copy, ShareNetwork } from "@/components/icons";
 
 type AiMessageProps = {
-  message: CoreMessage;
+  message: ChatMessage;
 };
 
 export function AiMessage({ message }: AiMessageProps) {
@@ -38,7 +38,7 @@ export function AiMessage({ message }: AiMessageProps) {
         </div>
       </div>
       <div className="text-content4-foreground">
-        {message.content as string}
+        {message?.content as string}
       </div>
     </div>
   );

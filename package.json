@@ -10,6 +10,8 @@
 	},
 	"dependencies": {
 		"@ai-sdk/openai": "^0.0.66",
+		"@langchain/core": "^0.3.10",
+		"@langchain/groq": "^0.1.2",
 		"@nextui-org/avatar": "^2.0.33",
 		"@nextui-org/button": "2.0.38",
 		"@nextui-org/card": "^2.0.34",
@@ -32,15 +34,19 @@
 		"clsx": "2.1.1",
 		"framer-motion": "~11.1.1",
 		"intl-messageformat": "^10.5.0",
+		"langchain": "^0.3.2",
 		"next": "14.2.4",
 		"next-themes": "^0.2.1",
 		"react": "18.3.1",
-		"react-dom": "18.3.1"
+		"react-dom": "18.3.1",
+		"uuid": "^10.0.0",
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@types/node": "20.5.7",
 		"@types/react": "18.3.3",
 		"@types/react-dom": "18.3.0",
+		"@types/uuid": "^10.0.0",
 		"@typescript-eslint/eslint-plugin": "7.2.0",
 		"@typescript-eslint/parser": "7.2.0",
 		"autoprefixer": "10.4.19",

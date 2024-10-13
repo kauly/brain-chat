@@ -8,7 +8,7 @@ export default function ChatPage() {
       <ChatNav />
       <div className="flex-1 w-full  overflow-y-auto flex">
         {/* <ChatEmpty /> */}
-        <ChatList messages={[]} />
+        <ChatList />
       </div>
       <div className="w-full p-6">
         <ChatInput />
