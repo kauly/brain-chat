@@ -4,8 +4,9 @@ import { Card, CardBody } from "@nextui-org/card";
 import { Button } from "@nextui-org/button";
 import { useContext } from "react";
 
-import { ArrowLeft, ArrowRight, Divider } from "@/components/icons";
 import { CarouselContext } from "./Carousel";
+
+import { ArrowLeft, ArrowRight, Divider } from "@/components/icons";
 
 export function CarouselButtonControl() {
   const { handleDecrement, handleIncrement } = useContext(CarouselContext);
@@ -16,14 +17,19 @@ export function CarouselButtonControl() {
         <div className="flex gap-4 items-center justify-start">
           <Button
             isIconOnly
+            aria-label="Gallery Previous"
             variant="light"
-            color="default"
             onClick={handleDecrement}
           >
             <ArrowLeft />
           </Button>
           <Divider />
-          <Button isIconOnly variant="light" onClick={handleIncrement}>
+          <Button
+            isIconOnly
+            aria-label="Gallery Next"
+            variant="light"
+            onClick={handleIncrement}
+          >
             <ArrowRight />
           </Button>
         </div>

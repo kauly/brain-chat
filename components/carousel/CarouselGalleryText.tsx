@@ -2,8 +2,9 @@
 
 import { useContext } from "react";
 
-import { subtitle, title } from "@/components/primitives";
 import { CarouselContext } from "./Carousel";
+
+import { subtitle, title } from "@/components/primitives";
 
 export function CarouselGalleryText() {
   const { index, items } = useContext(CarouselContext);

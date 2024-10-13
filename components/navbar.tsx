@@ -1,11 +1,11 @@
 import { Link } from "@nextui-org/link";
 import NextLink from "next/link";
 
-import { ROUTES, siteConfig } from "@/config/constants";
-
 import { GithubIcon } from "./icons";
 import { ThemeSwitch } from "./theme-switch";
 import { title } from "./primitives";
+
+import { ROUTES, siteConfig } from "@/config/constants";
 
 export function Navbar() {
   return (
@@ -18,8 +18,8 @@ export function Navbar() {
       </div>
       <div className="flex items-center">
         <NextLink
-          href={ROUTES.CHAT}
           className={title({ color: "blue", size: "sm" })}
+          href={ROUTES.CHAT}
         >
           Skip
         </NextLink>

@@ -31,3 +31,11 @@ export enum ROUTES {
   HOME = "/",
   CHAT = "/chat",
 }
+
+export const EMPTY_CHAT_WARNINGS = [
+  "Remembers what user said earlier in the conversation",
+  "Allow user to provide follow-up corrections With AI",
+  "Limited knowledge of world and events after 2021",
+  "May occasionally generate incorrect information",
+  "May occasionally produce harmful instructions or biased content",
+];
