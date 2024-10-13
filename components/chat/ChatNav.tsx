@@ -1,7 +1,7 @@
 import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
 
 import { CaretLeft, DotsThreeHorizontal } from "@/components/icons";
-import { Link } from "@nextui-org/link";
 import { ROUTES } from "@/config/constants";
 
 export function ChatNav() {

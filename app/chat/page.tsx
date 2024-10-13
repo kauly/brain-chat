@@ -1,4 +1,3 @@
-import { ChatEmpty } from "@/components/chat/ChatEmpty";
 import { ChatInput } from "@/components/chat/ChatInput";
 import { ChatList } from "@/components/chat/ChatList";
 import { ChatNav } from "@/components/chat/ChatNav";
