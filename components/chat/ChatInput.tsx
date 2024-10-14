@@ -1,57 +1,44 @@
 "use client";
 
-import { v4 as uuidv4 } from "uuid";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
-import { useContext } from "react";
-import { ChatMessage } from "@langchain/core/messages";
-import { readStreamableValue } from "ai/rsc";
-
-import { ChatContext } from "./Chat";
+import { Spinner } from "@nextui-org/spinner";
 
 import { PaperPlane } from "@/components/icons";
-import { conversation } from "@/app/actions";
 
-export function ChatInput() {
-  const { loading, handleMessages, handleUpdateMessage, messages } =
-    useContext(ChatContext);
+type ChatInputProps = {
+  loading?: boolean;
+  inputValue: string;
+  handleSubmit: () => void;
+  handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-  const handleSubmit = async (formData: FormData) => {
-    const input = formData.get("chat-input") as string;
-    const userMessage = {
-      content: input,
-      role: "user",
-      id: uuidv4(),
-    } as ChatMessage;
-    const aiMessage = {
-      content: "loading...",
-      role: "assistant",
-      id: uuidv4(),
-    } as ChatMessage;
-
-    handleMessages([userMessage, aiMessage]);
-    const { messages: newMessages, newMessage } = await conversation([
-      ...messages,
-      userMessage,
-    ]);
-    let textContent = "";
-
-    for await (const delta of readStreamableValue(newMessage)) {
-      textContent = `${textContent}${delta}`;
-      handleUpdateMessage(textContent, aiMessage.id as string);
+export function ChatInput({
+  loading,
+  handleSubmit,
+  handleInput,
+  inputValue,
+}: ChatInputProps) {
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSubmit();
     }
-
-    console.log("🚀 ~ handleSubmit ~ newMessages:", newMessages);
   };
 
   return (
-    <form action={handleSubmit}>
+    <div className="w-full p-4 md:p-6">
       <Input
         fullWidth
         isRequired
         endContent={
-          <Button isIconOnly isLoading={loading} size="sm" variant="light">
-            <PaperPlane />
+          <Button
+            isIconOnly
+            isLoading={loading}
+            size="sm"
+            variant="light"
+            onClick={() => handleSubmit()}
+          >
+            {loading ? <Spinner size="sm" /> : <PaperPlane />}
           </Button>
         }
         id="chat-input"
@@ -59,8 +46,11 @@ export function ChatInput() {
         name="chat-input"
         placeholder="Send a message."
         size="lg"
+        value={inputValue}
         variant="faded"
+        onChange={handleInput}
+        onKeyDown={handleEnter}
       />
-    </form>
+    </div>
   );
 }

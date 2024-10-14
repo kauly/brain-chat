@@ -2,6 +2,7 @@ import type { ApiError } from "@/types";
 
 import { Message } from "ai";
 import { AIMessage, HumanMessage } from "@langchain/core/messages";
+import { WebPDFLoader } from "@langchain/community/document_loaders/web/pdf";
 
 export const parseError = (
   e: unknown,
@@ -17,3 +18,14 @@ export const parseMessages = (messages: Message[]) =>
       ? new AIMessage(message.content)
       : new HumanMessage(message.content)
   );
+
+export const documentFromBlob = async (blob: Blob) => {
+  try {
+    const loader = new WebPDFLoader(blob);
+    const docs = await loader.load();
+
+    return docs;
+  } catch {
+    throw { message: "Error loading document", status: 400 };
+  }
+};

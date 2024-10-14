@@ -1,61 +1,89 @@
 "use client";
 
-import { createContext, PropsWithChildren, useCallback, useState } from "react";
+import { useState } from "react";
 import { ChatMessage } from "@langchain/core/messages";
+import { readStreamableValue } from "ai/rsc";
+import { v4 as uuidv4 } from "uuid";
 
-export const ChatContext = createContext({
-  messages: [] as ChatMessage[],
-  loading: false,
-  handleMessages: (_messages: ChatMessage[]) => {},
-  handleSingleMessage: (_message: ChatMessage) => {},
-  handleUpdateMessage: (_content: string, _id: string) => {},
-  handleLoading: (_loading: boolean) => {},
-  toggleLoading: () => {},
-});
+import { ChatNav } from "./ChatNav";
+import { ChatList } from "./ChatList";
+import { ChatInput } from "./ChatInput";
+import { ChatEmpty } from "./ChatEmpty";
 
-export function Chat({ children }: PropsWithChildren) {
+import { conversation } from "@/app/actions";
+
+export function Chat() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  const handleMessages = useCallback((newMessages: ChatMessage[]) => {
-    setMessages((prev) => [...prev, ...newMessages]);
-  }, []);
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
 
-  const handleSingleMessage = useCallback((message: ChatMessage) => {
-    setMessages((prev) => [...prev, message]);
-  }, []);
+  const handleEdit = (text?: string) => {
+    if (text) {
+      setInputValue(text);
+    }
+  };
 
-  const handleUpdateMessage = useCallback((content: string, id: string) => {
-    setMessages((prev) => {
-      const messages = prev.map((message) =>
-        message.id === id ? ({ ...message, content } as ChatMessage) : message
+  const handleSubmit = async () => {
+    try {
+      setLoading(true);
+
+      const userMessage = {
+        content: inputValue,
+        role: "user",
+        id: uuidv4(),
+      } as ChatMessage;
+      const aiMessage = {
+        role: "assistant",
+        id: uuidv4(),
+      } as ChatMessage;
+
+      setMessages((prev) => [...prev, userMessage, aiMessage]);
+      const { newMessage } = await conversation(
+        [...messages, userMessage],
+        inputValue
       );
+      let textContent = "";
 
-      return messages;
-    });
-  }, []);
+      for await (const delta of readStreamableValue(newMessage)) {
+        textContent = `${textContent}${delta}`;
 
-  const handleLoading = useCallback((loading: boolean) => {
-    setLoading(loading);
-  }, []);
+        setMessages((prev) => {
+          const messages = prev.map((message) =>
+            message.id === aiMessage.id
+              ? ({ ...message, content: textContent } as ChatMessage)
+              : message
+          );
 
-  const toggleLoading = useCallback(() => {
-    setLoading((prev) => !prev);
-  }, []);
+          return messages;
+        });
+      }
+      setInputValue("");
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <ChatContext.Provider
-      value={{
-        messages,
-        loading,
-        handleMessages,
-        handleSingleMessage,
-        handleUpdateMessage,
-        handleLoading,
-        toggleLoading,
-      }}
-    >
-      {children}
-    </ChatContext.Provider>
+    <section className="flex flex-col overflow-y-auto items-center justify-center gap-2 w-full h-full">
+      <ChatNav />
+
+      {messages.length ? (
+        <ChatList handleEdit={handleEdit} messages={messages} />
+      ) : (
+        <ChatEmpty />
+      )}
+
+      <ChatInput
+        handleInput={handleInput}
+        handleSubmit={handleSubmit}
+        inputValue={inputValue}
+        loading={loading}
+      />
+    </section>
   );
 }
