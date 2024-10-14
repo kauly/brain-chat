@@ -5,9 +5,9 @@ import { EMPTY_CHAT_WARNINGS } from "@/config/constants";
 
 export function ChatEmpty() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-4 md:py-8">
-      <h1 className={title({ color: "foreground" })}>BrainBox</h1>
-      <span className="py-4" />
+    <div className="flex flex-col items-center justify-center gap-2 py-2 md:gap-4   flex-1">
+      <h1 className={title({ color: "blue", size: "sm" })}>BrainBox</h1>
+
       {EMPTY_CHAT_WARNINGS.map((warning, i) => (
         <Card key={`chat-warning-${i}`}>
           <CardBody className="w-80 md:w-96 py-2 px-4 md:py-4 md:px-8 text-center">

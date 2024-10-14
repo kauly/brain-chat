@@ -9,7 +9,7 @@ import { ROUTES, siteConfig } from "@/config/constants";
 
 export function Navbar() {
   return (
-    <nav className="w-full flex items-center justify-between md:py-2">
+    <nav className="w-full flex items-center justify-between ">
       <div className="flex items-center gap-4">
         <ThemeSwitch />
         <Link isExternal aria-label="Github" href={siteConfig.links.github}>
